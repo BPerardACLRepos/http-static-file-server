@@ -18,4 +18,14 @@ describe('app routes', () => {
 
         expect(response.text).toEqual(file);
     });
+
+    it('response.text should be err.message', async () => {
+        const path = '/noFile.html';
+
+        const expected = `ENOENT: no such file or directory, open 'public${path}'`;
+
+        const response = await request(app).get(path);
+
+        expect(response.text).toEqual(expected);
+    });
 });
