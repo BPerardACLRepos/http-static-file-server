@@ -1,5 +1,7 @@
 const app = require('./lib/app');
 
-app.listen(7890, () => {
-  console.log('Application started!');
+const port = 7890;
+
+app.listen(port, () => {
+  console.log(`Application started on port ${port}`);
 });
